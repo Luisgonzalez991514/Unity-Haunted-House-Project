@@ -8,15 +8,38 @@ public class PlayerMovement : MonoBehaviour
     Animator m_Animator;
     public InputAction MoveAction;
 
-    public float walkSpeed = 1.0f;
+    private float walkSpeed;
     public float turnSpeed = 20f;
+
+    //sprint numbers
+    public float sprintSpeed = 8.0f;
+    public float walkS = 5f;
+    public float cooldownTime = 3f;
+    public float cooldownDuration = 0.5f;
+    private float cooldownTimer = 0f;
 
     Rigidbody m_Rigidbody;
     Vector3 m_Movement;
     Quaternion m_Rotation = Quaternion.identity;
 
+
+    IEnumerator cooldownlogic(){
+        if (cooldownTime <= cooldownTimer){
+            walkSpeed = sprintSpeed;
+            cooldownTimer = 0f;
+            yield return new WaitForSeconds(cooldownDuration);
+            walkSpeed = walkS;
+            Debug.Log("Sprint Successful");
+        }
+        else{
+            Debug.Log("Sprint Not Ready");
+        }
+
+    }
+
     void Start ()
     {
+        walkSpeed = walkS;
         m_Rigidbody = GetComponent<Rigidbody> ();
         MoveAction.Enable();
         m_Animator = GetComponent<Animator> ();
@@ -42,5 +65,13 @@ public class PlayerMovement : MonoBehaviour
         
         m_Rigidbody.MoveRotation (m_Rotation);
         m_Rigidbody.MovePosition (m_Rigidbody.position + m_Movement * walkSpeed * Time.deltaTime);
+
+        cooldownTimer += 0.1f;
+
+        //Spriint Logic
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            StartCoroutine(cooldownlogic());
+        }
     }
 }
