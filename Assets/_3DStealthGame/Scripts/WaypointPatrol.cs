@@ -35,7 +35,6 @@ public class WaypointPatrol : MonoBehaviour
         
         if (isPaused)
         {
-            m_RigidBody.linearVelocity = Vector3.zero;
             return;
         }
         
@@ -55,8 +54,6 @@ public class WaypointPatrol : MonoBehaviour
     void StartPause()
     {
         isPaused = true;
-        m_RigidBody.linearVelocity = Vector3.zero;
-        
         float pauseDuration = Random.Range(minPauseDuration, maxPauseDuration);
         Invoke("EndPause", pauseDuration);
     }
