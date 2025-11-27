@@ -538,6 +538,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &116597803
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 116597805}
+  - component: {fileID: 116597804}
+  m_Layer: 0
+  m_Name: UImanager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &116597804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116597803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08fbdd0092ae84a8c8d2f3f0af2d0a47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UImanager
+  sprintUI: {fileID: 764167742}
+  player: {fileID: 2070103436}
+--- !u!4 &116597805
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116597803}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 435.5, y: 377.75, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &146229357
 GameObject:
   m_ObjectHideFlags: 0
@@ -4110,6 +4156,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2195543061787565828}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2070103436 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 65776954458261500, guid: 31f980a2333e1ee49a462b59a34106ff,
+    type: 3}
+  m_PrefabInstance: {fileID: 2195543061787565828}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070103433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d6c15d7f74e9b444bd29c8d1c10f0ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
 --- !u!1 &2109093712
 GameObject:
   m_ObjectHideFlags: 0
@@ -4429,12 +4487,17 @@ PrefabInstance:
     - target: {fileID: 65776954458261500, guid: 31f980a2333e1ee49a462b59a34106ff,
         type: 3}
       propertyPath: sprintSpeed
-      value: 10
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 65776954458261500, guid: 31f980a2333e1ee49a462b59a34106ff,
+        type: 3}
+      propertyPath: sprintDuration
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 65776954458261500, guid: 31f980a2333e1ee49a462b59a34106ff,
         type: 3}
       propertyPath: cooldownDuration
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 65776954458261500, guid: 31f980a2333e1ee49a462b59a34106ff,
         type: 3}
@@ -5623,3 +5686,4 @@ SceneRoots:
   - {fileID: 54226041}
   - {fileID: 390202998}
   - {fileID: 355360756}
+  - {fileID: 116597805}
