@@ -18,7 +18,7 @@ public class UImanager : MonoBehaviour
     
     void Update()
     {
-         if( player.cooldownTime <= player.cooldownTimer){
+         if(player.cooldownTimer >= player.cooldownTime){
             Color c = sprintUI.color;
             c.a = 1f;
             sprintUI.color = c;
